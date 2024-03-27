@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"  # Проброс порта для доступа к приложению
+    depends_on:
+      - redis  # Зависимость от контейнера Redis
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"  # Проброс порта для доступа к Redis
